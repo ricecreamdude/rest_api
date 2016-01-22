@@ -13,7 +13,7 @@ alienRouter.get('/aliens' , (req , res) => {
 		}
 
 		res.status(200).json(data);
-		
+
 	});
 });
 
@@ -34,7 +34,7 @@ alienRouter.put('/aliens/:id' , jsonParser , (req , res) => {
 
 	var alienData = req.body;
 	delete alienData._id;
-	Alien.update({._id: req.params.id} , alienData , (err) => {
+	Alien.update({_id: req.params.id} , alienData , (err) => {
 		if(err) {
 			return handleDBError(err ,res);
 		}
@@ -45,7 +45,8 @@ alienRouter.put('/aliens/:id' , jsonParser , (req , res) => {
 });
 
 alienRouter.delete('/aliens/:id' , () => {
-	Alien.remove({_id: req.params.id} , (err) => {
+			//Method  //Query					
+	Alien.remove( {_id: req.params.id} , (err) => {
 		if (err) {
 			return handleDBError(err , res);
 		}

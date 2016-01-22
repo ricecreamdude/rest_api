@@ -33,7 +33,7 @@ soldierRouter.put('/soldiers/:id' , jsonParser , (req , res) => {
 	
 	//The alternative to this is to access the requested object and
 	//replace the data with a $ud (???) method. (Check Mongoose)
-	delete ._id;
+	delete soldierData._id;
 									//Object to update info with
 	Soldier.update( {_id: req.params.id}, soldierData , (err) => {
 		if (err) {
